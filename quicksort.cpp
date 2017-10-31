@@ -5,22 +5,14 @@ using namespace std;
 #include <iostream>
 #include <random>
 
-
 void swap(int* a, int* b) {
     // return a
     int temp = *a;
     *a = *b;
-    *b = *a;
+    *b = temp;
 }
 
 int partition(std::vector<int> a, int low, int high) {
-    // for (int i = 1; i < a.size(); i++) {
-    //     cout << "\ni: " << (a[low] > a[i]) << "\n";
-
-    //     // for (int j = arrayToBeSorted.size() - 1; j > 1; j--) {
-    //     //     cout << "\ni: " << i << "\n";
-    //     // }
-    // }
     int i = 1, j = a.size() - 1;
     bool iStop = false, jStop = false;
     while(true) {
@@ -33,7 +25,12 @@ int partition(std::vector<int> a, int low, int high) {
         if (iStop && jStop) {
             cout << "\ni: " << i << "\n";
             cout << "\nj: " << j << "\n";
-            cout << "Time to Change";
+            cout << "Time to Change\n";
+
+            swap(&a[i], &a[j]);
+
+            for(int i=0; i<a.size(); ++i)
+            cout << a[i] << ' ';
 
             break;
         }

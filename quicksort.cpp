@@ -14,12 +14,19 @@ void swap(int* a, int* b) {
 }
 
 void sort(std::vector<int> arrayToBeSorted, int low, int high) {
+    if (high <= low) return;
+    
+}
+
+void sort(std::vector<int> arrayToBeSorted) {
     std::random_device randomDevice;
     std::mt19937 generator(randomDevice());
     shuffle(arrayToBeSorted.begin(), arrayToBeSorted.end(), generator);
 
     for(int i=0; i<arrayToBeSorted.size(); ++i)
     cout << arrayToBeSorted[i] << ' ';
+
+    sort(arrayToBeSorted, 0, sizeof(arrayToBeSorted) - 1);
 }
 
 int main() {
@@ -31,7 +38,7 @@ int main() {
         array[i] = i;
     }
 
-    sort(array, 0, sizeof(array) - 1);
+    sort(array);
 
     int a = 10;
     int b = 5;

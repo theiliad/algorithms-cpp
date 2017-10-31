@@ -13,7 +13,7 @@ void swap(int* a, int* b) {
     *b = *a;
 }
 
-void sort(std::vector<int> arrayToBeSorted) {
+void sort(std::vector<int> arrayToBeSorted, int low, int high) {
     std::random_device randomDevice;
     std::mt19937 generator(randomDevice());
     shuffle(arrayToBeSorted.begin(), arrayToBeSorted.end(), generator);
@@ -31,7 +31,7 @@ int main() {
         array[i] = i;
     }
 
-    sort(array);
+    sort(array, 0, sizeof(array) - 1);
 
     int a = 10;
     int b = 5;

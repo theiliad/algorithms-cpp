@@ -13,7 +13,7 @@ void swap(int* a, int* b) {
 }
 
 int partition(std::vector<int> a, int low, int high) {
-    int i = 1, j = a.size() - 1;
+    int i = low + 1, j = high;
     bool iStop = false, jStop = false;
     while(true) {
         if (iStop == false && a[low] > a[i]) i++;
@@ -42,7 +42,7 @@ int partition(std::vector<int> a, int low, int high) {
 void sort(std::vector<int> arrayToBeSorted, int low, int high) {
     if (high <= low) return;
     int j = partition(arrayToBeSorted, low, high);
-    cout << "\n" << j << "\n";
+    cout << "\npartitionJ: " << j << "\n";
 }
 
 void sort(std::vector<int> arrayToBeSorted) {
